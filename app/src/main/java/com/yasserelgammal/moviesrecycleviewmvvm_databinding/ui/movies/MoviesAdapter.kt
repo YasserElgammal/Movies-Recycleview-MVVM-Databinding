@@ -9,7 +9,8 @@ import com.yasserelgammal.moviesrecycleviewmvvm_databinding.data.models.Movie
 import com.yasserelgammal.moviesrecycleviewmvvm_databinding.databinding.RecyclerviewMovieBinding
 
 class MoviesAdapter (
-    private val movies: List<Movie>
+    private val movies: List<Movie>,
+    private val listener: RecycleViewClickListener
 ) : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 
     override fun getItemCount() = movies.size
@@ -24,6 +25,14 @@ class MoviesAdapter (
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         holder.recyclerViewMoviesBinding.movie = movies[position]
+
+        holder.recyclerViewMoviesBinding.buttonBook.setOnClickListener {
+        listener.onRecyclerViewItemClick(holder.recyclerViewMoviesBinding.buttonBook,movies[position])
+        }
+
+        holder.recyclerViewMoviesBinding.likeLayout.setOnClickListener {
+        listener.onRecyclerViewItemClick(holder.recyclerViewMoviesBinding.likeLayout, movies[position])
+        }
 
     }
     inner class MoviesViewHolder(

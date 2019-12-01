@@ -68,6 +68,7 @@
                         android:layout_height="25dp"/>
 
                     <RelativeLayout
+                        android:id="@+id/likeLayout"
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
                         android:paddingLeft="12dp"
@@ -136,6 +137,7 @@
                         android:layout_height="wrap_content"/>
 
                     <Button
+                        android:id="@+id/buttonBook"
                         android:layout_alignParentRight="true"
                         android:text="Book"
                         android:layout_centerVertical="true"
